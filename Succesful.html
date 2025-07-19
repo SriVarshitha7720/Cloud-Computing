@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f8f8f8;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #00d1d1;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .success-card {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      background: #e6ffe6;
+      border-left: 5px solid #00cc66;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .success-card.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+      <label for="name">Name*</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email*</label>
+      <input type="email" id="email" required />
+
+      <label for="message">Message*</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="successCard" class="success-card">
+      <h3>Thank you!</h3>
+      <p>Your message has been submitted successfully.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successCard = document.getElementById('successCard');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submission
+
+      // Optional: Validate or simulate AJAX here
+
+      successCard.classList.add('show');
+
+      // Optionally clear the form:
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
